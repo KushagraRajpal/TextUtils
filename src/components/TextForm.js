@@ -16,13 +16,22 @@ export default function TextForm(props) {
         let newText  = '';
         setText(newText);
     }
-    const handleSpace = () => {
-
+    const handleSentence = () => {
         let newText  = text.charAt(0).toUpperCase()+text.slice(1).toLowerCase()
-      // let newText = text.replace(/\w\S*/g + cap)
-          // console.log(cap,newText)
-
+      // let cap = text.split(/\s+/).map(newText).join(' ')
+      
         setText(newText);
+    }
+    const handleCopy = () => {
+      let text = document.getElementById("myBox");
+      text.select();
+      navigator.clipboard.writeText(text.value);
+    }
+    const handleExtraSpaces = () => {
+      let newText = text.split(/[ ]+/);
+      setText(newText.join(" "))
+      // let newText = text.trim()
+      // setText(newText)
     }
     const handleOnChange = (event) => {
         // console.log('Upper case clicked');
@@ -48,7 +57,9 @@ export default function TextForm(props) {
       <button className="btn btn-primary m-3" onClick = {handleUpClick}>Convert to uppercase</button>
       <button className="btn btn-primary m-3" onClick = {handleLowClick}>Convert to lowercase</button>
       <button className="btn btn-primary m-3" onClick = {handleClear}>Clear Text</button>
-      <button className="btn btn-primary m-3" onClick = {handleSpace}>Sentence Case</button>
+      <button className="btn btn-primary m-3" onClick = {handleSentence}>Sentence Case</button>
+      <button className="btn btn-primary m-3" onClick = {handleCopy}>Copy to Clipboard</button>
+      <button className="btn btn-primary m-3" onClick = {handleExtraSpaces}>Remove Extra Space</button>
       
     </div>
     <div className="container my-3">
