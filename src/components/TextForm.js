@@ -43,12 +43,13 @@ export default function TextForm(props) {
         // setText("new text") // correct way to change the state
   return (
   <>
-    <div className = "container">
+    <div className = "container"   style = {{color : props.mode === 'dark'? "white":"black"  }}>
         <h1>{props.heading}</h1>
       <div className="mb-3">
         <textarea
           className="form-control"
           id="myBox"
+          style = {{backgroundColor : props.mode === 'dark'? "black":"white",color : props.mode === 'dark'? "white":"black"  }}
           rows="8"
           value = {text}
           onChange = {handleOnChange}
@@ -62,12 +63,12 @@ export default function TextForm(props) {
       <button className="btn btn-primary m-3" onClick = {handleExtraSpaces}>Remove Extra Space</button>
       
     </div>
-    <div className="container my-3">
+    <div className="container my-3"  style = {{color : props.mode === 'dark'? "white":"black"  }}>
       <h2>Your text summary</h2>
       <p>{text.split(" ").length} words and {text.length} characters</p>
       <p>{0.008 * text.split(" ").length} </p>
       <h2>Preview</h2>
-      <p>{text}</p>
+      <p>{text.length>0?text:"Enter something in the textbox to preview it here"}</p>
     </div>
     </>
   );
