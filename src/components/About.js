@@ -1,10 +1,16 @@
-import React,  { useState } from "react";
+import React from "react";
 
 export default function About(props) {
-  //  const[myStyle, setMyStyle] = useState({
-    // color: 'black',
-    // backgroundColor : 'white'
+//    const[myStyle, setMyStyle] = useState({
+//     color: 'black',
+//     backgroundColor : 'white'
 // })
+let myStyle ={
+  color : props.mode === 'dark'? 'white' : 'black',
+  backgroundColor : props.mode === 'dark'? 'black' : 'white',
+  // border: '2px solid',
+  // borderColor: props.mode === 'dark'? 'white' : 'black',
+}
 // const [btntext, setBtntext] = useState(" Enable Dark Mode")
      
 //    const toogleStyle = () => {
@@ -26,20 +32,21 @@ export default function About(props) {
 //   }
 
   return (
-    <div className="container"   style = {{color : props.mode === 'dark'? "white":"black"  }}>
-        <h1 className = "my-3">About us</h1>
+    <div className="container"   >
+        <h1 className = "my-3" style = {myStyle}>About us</h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">
             <button
               className="accordion-button"
-              type="button"style ={myStyle}
+              type="button"
+              style ={myStyle}
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Accordion Item #1
+             <strong> Analyze Your Text </strong>
             </button>
           </h2>
           <div
@@ -71,7 +78,7 @@ export default function About(props) {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Accordion Item #2
+             <strong> Free to use </strong>
             </button>
           </h2>
           <div
@@ -103,7 +110,7 @@ export default function About(props) {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Accordion Item #3
+           <strong>   Browser compatiable </strong>
             </button>
           </h2>
           <div
