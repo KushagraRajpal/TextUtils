@@ -1,10 +1,10 @@
 import React,  { useState } from "react";
 
 export default function About(props) {
-   const[myStyle, setMyStyle] = useState({
+  //  const[myStyle, setMyStyle] = useState({
     // color: 'black',
     // backgroundColor : 'white'
-})
+// })
 // const [btntext, setBtntext] = useState(" Enable Dark Mode")
      
 //    const toogleStyle = () => {
