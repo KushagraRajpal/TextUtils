@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const handleUpClick = () => {
+    // console.log('Upper case clicked' + text);
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to Upper Case", "success");
   }
   const handleLowClick = () => {
+    // console.log('Upper case clicked' + text);
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted to Lower Case", "success");
@@ -18,6 +20,7 @@ export default function TextForm(props) {
   }
   const handleSentence = () => {
     let newText = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
+    // let cap = text.split(/\s+/).map(newText).join(' ')
     props.showAlert("Switched to sentence Case", "success");
     setText(newText);
   }
@@ -31,21 +34,29 @@ export default function TextForm(props) {
       setText(newText)
     })
   }
+
   const handleCopy = () => {
+    // let text = document.getElementById("myBox");
+    // text.select();
     navigator.clipboard.writeText(text);
+    // document.getSelection().removeAllRanges()
     props.showAlert("Text has been copied to clipboard", "success");
   }
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "))
     props.showAlert("Space addjusted", "success");
+    // let newText = text.trim()
+    // setText(newText)
   }
   const handleOnChange = (event) => {
+    // console.log('Upper case clicked');
     setText(event.target.value)
   }
 
   const [text, setText] = useState('');
-
+  //   text = "new text" // Wrong way to change the state
+  // setText("new text") // correct way to change the state
   return (
     <>
       <div className="container" style={{ color: props.mode === 'dark' ? "white" : "black" }}>
