@@ -23,7 +23,16 @@ export default function TextForm(props) {
         let newText  = text.charAt(0).toUpperCase()+text.slice(1).toLowerCase()
       // let cap = text.split(/\s+/).map(newText).join(' ')
       props.showAlert("Switched to sentence Case", "success");
-        setText(newText);
+            setText(newText);
+    }
+    const handleCapitalize = () => {
+        let words = text.split(' ')
+        let capitalizedWords =[];
+        words.forEach(element =>{
+          capitalizedWords.push(element[0].toUpperCase()+ element.slice(1, element.length));
+          let newText = capitalizedWords.join(' ');
+          setText(newText)
+        })
     }
     const handleCopy = () => {
       // let text = document.getElementById("myBox");
@@ -65,6 +74,7 @@ export default function TextForm(props) {
       <button disabled= {text.length===0} className="btn btn-primary m-1" onClick = {handleLowClick}>Convert to lowercase</button>
       <button disabled= {text.length===0} className="btn btn-primary m-1" onClick = {handleClear}>Clear Text</button>
       <button disabled= {text.length===0} className="btn btn-primary m-1" onClick = {handleSentence}>Sentence Case</button>
+      <button disabled= {text.length===0} className="btn btn-primary m-1" onClick = {handleCapitalize}>Capitatise Case</button>
       <button disabled= {text.length===0} className="btn btn-primary m-1" onClick = {handleCopy}>Copy to Clipboard</button>
       <button disabled= {text.length===0} className="btn btn-primary m-1" onClick = {handleExtraSpaces}>Remove Extra Space</button>
       
