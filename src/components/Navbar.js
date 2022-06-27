@@ -47,19 +47,7 @@ export default function Navbar(props) {
             </label>
           </div>
 
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              style={{ backgroundColor: props.mode === 'dark' ? "black" : "white", color: props.mode === 'dark' ? "white" : "black" }}
-
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-primary" type="submit">
-              Search
-            </button>
-          </form>
+        
         </div>
       </div>
     </nav>
